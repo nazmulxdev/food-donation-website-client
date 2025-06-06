@@ -2,7 +2,7 @@ import { ClockLoader } from "react-spinners";
 
 const LoadingSpinner = () => {
   return (
-    <div className="text-center">
+    <div className="text-center my-16">
       <ClockLoader
         className="mx-auto"
         color="#d95d39"

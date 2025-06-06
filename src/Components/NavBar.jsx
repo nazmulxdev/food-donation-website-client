@@ -46,18 +46,18 @@ const NavBar = () => {
         <NavLink to="/">Home</NavLink>
       </li>
       <li>
-        <NavLink>AvailableFoods</NavLink>
+        <NavLink to="/availableFoods">AvailableFoods</NavLink>
       </li>
       {currentUser && (
         <>
           <li>
-            <NavLink>AddFood</NavLink>
+            <NavLink to="/addFood">AddFood</NavLink>
           </li>
           <li>
-            <NavLink>ManageMyFoods</NavLink>
+            <NavLink to="/manageMyFoods">ManageMyFoods</NavLink>
           </li>
           <li>
-            <NavLink>MyFoodRequest</NavLink>
+            <NavLink to="/myFoodRequests">MyFoodRequest</NavLink>
           </li>
         </>
       )}

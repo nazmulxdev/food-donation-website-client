@@ -75,18 +75,17 @@ const NavBar = () => {
             >
               <svg
                 xmlns="http://www.w3.org/2000/svg"
-                className="h-5 w-5"
                 fill="none"
                 viewBox="0 0 24 24"
-                stroke="currentColor"
+                className="inline-block h-5 sw-5 stroke-current text-accent"
               >
                 {" "}
                 <path
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M4 6h16M4 12h8m-8 6h16"
-                />{" "}
+                  d="M4 6h16M4 12h16M4 18h16"
+                ></path>{" "}
               </svg>
             </div>
             <ul
@@ -97,7 +96,7 @@ const NavBar = () => {
             </ul>
           </div>
           <div className="flex justify-center items-center">
-            <img className="w-16 sm:w-20 md:w-24" src={webLogo} alt="" />
+            <img className="w-16 sm:w-20s" src={webLogo} alt="" />
             <div className="hidden lg:block ml-2">
               <h1 className="font-bold text-4xl text-primary"> Meals4Gaza</h1>
               <p className="text-sm text-[#4B4B4B] font-bold">

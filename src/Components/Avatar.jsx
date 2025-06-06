@@ -1,10 +1,11 @@
 import React from "react";
 
-const Avatar = () => {
+const Avatar = ({ userPhoto }) => {
+  console.log(userPhoto);
   return (
     <div className="avatar avatar-online">
-      <div className="w-24 rounded-full">
-        <img src="https://img.daisyui.com/images/profile/demo/gordon@192.webp" />
+      <div className="w-16 sm:w-20  rounded-full">
+        <img className="" src={userPhoto} />
       </div>
     </div>
   );

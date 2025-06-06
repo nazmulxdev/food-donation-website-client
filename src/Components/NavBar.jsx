@@ -1,15 +1,30 @@
-import React from "react";
-import { Link, NavLink } from "react-router";
+import React, { useContext } from "react";
+import { Link, NavLink, useNavigate } from "react-router";
 import Avatar from "./Avatar";
 import webLogo from "../assets/logo.png";
+import AuthContext from "../Context/AuthContext/AuthContext";
+import { sweetSuccess } from "../Utilities/alert";
 
 const NavBar = () => {
+  const { currentUser, logOutUser } = useContext(AuthContext);
+  const navigate = useNavigate();
+  const handleLogOut = () => {
+    logOutUser().then(() => {
+      sweetSuccess("You have log out successfully").then(() => {
+        navigate("/");
+      });
+    });
+  };
+
   const registerLInks = (
     <>
-      <Avatar></Avatar>
-      <NavLink className="btn bg-primary hover:bg-accent text-white">
-        Register
-      </NavLink>
+      <Avatar userPhoto={currentUser?.photoURL}></Avatar>
+      <Link
+        onClick={handleLogOut}
+        className="btn bg-primary hover:bg-accent text-white"
+      >
+        LogOut
+      </Link>
     </>
   );
   const logInLinks = (
@@ -33,15 +48,19 @@ const NavBar = () => {
       <li>
         <NavLink>AvailableFoods</NavLink>
       </li>
-      <li>
-        <NavLink>AddFood</NavLink>
-      </li>
-      <li>
-        <NavLink>ManageMyFoods</NavLink>
-      </li>
-      <li>
-        <NavLink>MyFoodRequest</NavLink>
-      </li>
+      {currentUser && (
+        <>
+          <li>
+            <NavLink>AddFood</NavLink>
+          </li>
+          <li>
+            <NavLink>ManageMyFoods</NavLink>
+          </li>
+          <li>
+            <NavLink>MyFoodRequest</NavLink>
+          </li>
+        </>
+      )}
     </>
   );
   return (
@@ -92,7 +111,9 @@ const NavBar = () => {
             {privateLinks}
           </ul>
         </div>
-        <div className="navbar-end space-x-2">{logInLinks}</div>
+        <div className="navbar-end space-x-2">
+          {currentUser ? registerLInks : logInLinks}
+        </div>
       </div>
     </div>
   );

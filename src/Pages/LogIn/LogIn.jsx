@@ -1,8 +1,44 @@
-import React from "react";
-import { Link } from "react-router";
+import React, { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router";
 import NavBar from "../../Components/NavBar";
+import AuthContext from "../../Context/AuthContext/AuthContext";
+import { sweetError, sweetSuccess } from "../../Utilities/alert";
 
 const LogIn = () => {
+  const { signInGoogle, setCurrentUser, signInEmailPassword } =
+    useContext(AuthContext);
+  const location = useLocation();
+  const navigate = useNavigate();
+
+  const handleLogInWithEmail = (e) => {
+    e.preventDefault();
+    const email = e.target.email.value;
+    const password = e.target.password.value;
+    console.log(email, password);
+    signInEmailPassword(email, password)
+      .then((user) => {
+        const textMessage = "You have successfully logged in";
+        setCurrentUser(user.user);
+        sweetSuccess(textMessage);
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        sweetError(error.message);
+      });
+  };
+
+  const handleGoogle = () => {
+    signInGoogle()
+      .then((user) => {
+        const textMessage = "You have successfully logged in";
+        setCurrentUser(user.user);
+        sweetSuccess(textMessage);
+        navigate(location.state ? location.state : "/");
+      })
+      .catch((error) => {
+        sweetError(error.message);
+      });
+  };
   return (
     <div>
       <NavBar></NavBar>
@@ -11,7 +47,7 @@ const LogIn = () => {
           <h1 className="text-4xl font-bold text-center text-primary">
             Login now!
           </h1>
-          <form className="fieldset space-y-1">
+          <form onSubmit={handleLogInWithEmail} className="fieldset space-y-1">
             <label className="label text-lg font-medium">Email</label>
             <input
               type="email"
@@ -50,6 +86,7 @@ const LogIn = () => {
             <button
               aria-label="Login with Google"
               type="button"
+              onClick={handleGoogle}
               className="flex items-center justify-center w-full p-4 space-x-4 rounded-md focus:ring-2 focus:ring-offset-1 hover:bg-accent font-bold bg-primary text-white hover:border hover:text-white hover:cursor-pointer"
             >
               <svg

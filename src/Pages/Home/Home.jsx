@@ -2,11 +2,15 @@ import React from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import Banner from "./Banner";
+import Volunteer from "./Volunteer";
+import Stories from "./Stories";
 
 const Home = () => {
   return (
     <div>
       <Banner></Banner>
+      <Volunteer></Volunteer>
+      <Stories></Stories>
     </div>
   );
 };

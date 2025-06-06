@@ -28,7 +28,7 @@ const NavBar = () => {
   const privateLinks = (
     <>
       <li>
-        <NavLink>Home</NavLink>
+        <NavLink to="/">Home</NavLink>
       </li>
       <li>
         <NavLink>AvailableFoods</NavLink>
@@ -78,10 +78,10 @@ const NavBar = () => {
             </ul>
           </div>
           <div className="flex justify-center items-center">
-            <img className="w-24" src={webLogo} alt="" />
+            <img className="w-16 sm:w-20 md:w-24" src={webLogo} alt="" />
             <div className="hidden lg:block ml-2">
               <h1 className="font-bold text-4xl text-primary"> Meals4Gaza</h1>
-              <p className="text-sm text-[#4B4B4B]">
+              <p className="text-sm text-[#4B4B4B] font-bold">
                 Sharing Food, Supporting Palestine
               </p>
             </div>

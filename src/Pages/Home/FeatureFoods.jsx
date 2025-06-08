@@ -12,7 +12,7 @@ const containerVariants = {
   show: {
     opacity: 1,
     transition: {
-      staggerChildren: 0.1, // Delay between each child animation
+      staggerChildren: 0.1,
     },
   },
 };
@@ -50,7 +50,7 @@ const FeatureFoods = () => {
 
   const renderer = ({ days, hours, minutes, seconds, complete }) => {
     if (complete) {
-      return <span>Expired</span>;
+      return <span className="text-red-500 font-semibold">Expired</span>;
     } else {
       return (
         <span>
@@ -59,9 +59,6 @@ const FeatureFoods = () => {
       );
     }
   };
-
-  console.log(featuredFoods);
-
   return (
     <div className="bg-white py-16 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">
@@ -78,6 +75,7 @@ const FeatureFoods = () => {
         variants={containerVariants}
         initial="hidden"
         animate="show"
+        viewport={{ once: true, amount: 0.2 }}
       >
         {featuredFoods?.map((food) => (
           <motion.div
@@ -133,12 +131,10 @@ const FeatureFoods = () => {
         ))}
       </motion.div>
       <div className="my-4 text-center">
-        <motion.div
-          whileHover={{ scale: 1.05 }}
-          whileTap={{ scale: 0.95 }}
-          className="btn btn-primary text-white"
-        >
-          <Link to="/availableFoods">Show All</Link>
+        <motion.div whileHover={{ scale: 1.5 }} whileTap={{ scale: 0.95 }}>
+          <Link className="btn btn-primary text-white" to="/availableFoods">
+            Show All
+          </Link>
         </motion.div>
       </div>
     </div>

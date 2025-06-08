@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import AllFetchApi from "../../AllApi/AllFetchApi";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import LoadingSpinner from "../../Components/LoadingSpinner";
+import { Link } from "react-router";
 
 const AvailableFoods = () => {
   const { allAvailableFoodsAPI } = AllFetchApi();
@@ -10,7 +11,7 @@ const AvailableFoods = () => {
   const [sort, setSort] = useState("all");
   const [isThreeCol, setIsThreeCol] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(searchTerm);
+  console.log(foods);
 
   useEffect(() => {
     setLoading(true);
@@ -88,10 +89,7 @@ const AvailableFoods = () => {
         ) : (
           <>
             {foods?.map((food) => (
-              <div
-                key={food?._id}
-                className="rounded-md shadow-md dark:bg-gray-50 dark:text-gray-800"
-              >
+              <div key={food?._id} className="rounded-md shadow-xl">
                 <img
                   src={food?.foodImage}
                   alt=""
@@ -99,20 +97,27 @@ const AvailableFoods = () => {
                 />
                 <div className="flex flex-col justify-between p-6 space-y-8">
                   <div className="space-y-2">
-                    <h2 className="text-3xl font-semibold tracking-wide">
+                    <h2 className="text-3xl font-semibold tracking-wide text-primary">
                       {food.foodName}
                     </h2>
-                    <p className="dark:text-gray-800">
-                      Curabitur luctus erat nunc, sed ullamcorper erat
-                      vestibulum eget.
+                    <p className="font-semibold">
+                      Available Quantity:{" "}
+                      <span className="text-accent">{food.quantity}</span>
+                    </p>
+                    <p className="font-semibold">
+                      Expire Date:{" "}
+                      <span className="text-accent">
+                        {food.expiry.split("T")[0]}
+                      </span>{" "}
                     </p>
                   </div>
-                  <button
+                  <Link
+                    to={`/foodDetails/${food._id}`}
                     type="button"
-                    className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md dark:bg-violet-600 dark:text-gray-50"
+                    className="flex items-center justify-center w-full p-3 font-semibold tracking-wide rounded-md bg-primary hover:bg-accent text-white"
                   >
-                    Read more
-                  </button>
+                    View Details
+                  </Link>
                 </div>
               </div>
             ))}

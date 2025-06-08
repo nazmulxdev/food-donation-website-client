@@ -23,7 +23,15 @@ const AllFetchApi = () => {
     return response.data;
   };
 
-  return { addFoodAPI, allFeaturedFoodsAPI, allAvailableFoodsAPI };
+
+  // get specific foods by their id
+
+  const singleFoodAPI=async (id)=>{
+    const response=await axios.get(`${baseUrl}/foodDetails/${id}`);
+    return response.data;
+  }
+
+  return { addFoodAPI, allFeaturedFoodsAPI, allAvailableFoodsAPI,singleFoodAPI };
 };
 
 export default AllFetchApi;

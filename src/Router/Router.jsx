@@ -9,6 +9,10 @@ import PrivateRoute from "../PrivateRoute/PrivateRoute";
 import AddFood from "../Pages/AddFood/AddFood";
 import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
 import MyFoodRequest from "../Pages/MyFoodRequesrt/MyFoodRequest";
+import FoodDetails from "../Pages/AvailableFoods/FoodDetails";
+import AllFetchApi from "../AllApi/AllFetchApi";
+import LoadingSpinner from "../Components/LoadingSpinner";
+const { singleFoodAPI } = AllFetchApi();
 
 const Router = createBrowserRouter([
   {
@@ -22,6 +26,18 @@ const Router = createBrowserRouter([
       {
         path: "/availableFoods",
         Component: AvailableFoods,
+      },
+      {
+        path: "/foodDetails/:id",
+        loader: ({ params }) => {
+          return singleFoodAPI(params.id);
+        },
+        element: (
+          <PrivateRoute>
+            <FoodDetails></FoodDetails>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "/addFood",

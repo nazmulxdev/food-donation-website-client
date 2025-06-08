@@ -1,26 +1,33 @@
 import React, { useContext } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
-import axios from "axios";
 import { sweetError, sweetSuccess } from "../../Utilities/alert";
+import AllFetchApi from "../../AllApi/AllFetchApi";
+import { useMutation } from "@tanstack/react-query";
 
 const AddFood = () => {
   const { currentUser } = useContext(AuthContext);
+
+  const { addFoodAPI } = AllFetchApi();
+
+  const addFoodMutation = useMutation({
+    mutationFn: addFoodAPI,
+    onSuccess: (data) => {
+      if (data.insertedId) {
+        sweetSuccess("Food added successfully");
+      }
+    },
+    onError: (error) => {
+      sweetError(error.message);
+    },
+  });
   const handleAddFood = (e) => {
     e.preventDefault();
     const form = e.target;
     const formData = new FormData(form);
     const donatedMeal = Object.fromEntries(formData.entries());
-    axios
-      .post(`${import.meta.env.VITE_URL}/foodCollection`, donatedMeal)
-      .then((data) => {
-        if (data.data.insertedId) {
-          sweetSuccess("Food added successfully");
-          form.reset();
-        }
-      })
-      .catch((error) => {
-        sweetError(error);
-      });
+
+    addFoodMutation.mutate(donatedMeal);
+    form.reset();
   };
   return (
     <div className="max-w-screen-2xl mx-auto p-4 my-8">

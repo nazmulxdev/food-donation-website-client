@@ -57,7 +57,7 @@ const Banner = () => {
   };
 
   return (
-    <div className="relative w-full h-[24rem] sm:h-[28rem] md:h-[36rem] overflow-hidden mb-32">
+    <div className="relative w-full h-[24rem] sm:h-[28rem] md:h-[36rem] overflow-hidden">
       <video
         className="absolute top-0 left-0 w-full h-full object-cover z-0"
         src="https://3vyg2acdxl.ufs.sh/f/vZKcTYAMgkubKV5XgStXP6QS7Ia2q1WiYbfoRBpFxv58LhcM"

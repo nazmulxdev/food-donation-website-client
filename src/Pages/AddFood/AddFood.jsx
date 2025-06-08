@@ -15,6 +15,7 @@ const AddFood = () => {
       .then((data) => {
         if (data.data.insertedId) {
           sweetSuccess("Food added successfully");
+          form.reset();
         }
       })
       .catch((error) => {

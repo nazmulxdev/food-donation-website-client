@@ -56,13 +56,23 @@ const useAllFetchApi = () => {
     return response.data;
   };
 
+  // put method to update donated food by user
+  const updateDonatedFoodAPI = async ({id, updatedData}) => {
+    const response = await axiosSecure.put(
+      `/foodCollection/${id}`,
+      updatedData,
+    );
+    return response.data;
+  };
+
   return {
     addFoodAPI,
     allFeaturedFoodsAPI,
     allAvailableFoodsAPI,
     requestFoodAPI,
     donarFoodAPI,
-    requestedFoodsByUserAPI
+    requestedFoodsByUserAPI,
+    updateDonatedFoodAPI,
   };
 };
 

@@ -1,19 +1,65 @@
 import React, { useContext } from "react";
-import { Link, useLoaderData, useParams } from "react-router";
+import { Link, useLoaderData, useNavigate, useParams } from "react-router";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import useAllFetchApi from "../../AllApi/useAllFetchApi";
+import {
+  QueryClient,
+  useMutation,
+  useQueryClient,
+} from "@tanstack/react-query";
+import { sweetError, sweetSuccess } from "../../Utilities/alert";
 
 const UpdateDonatedFood = () => {
   const { currentUser } = useContext(AuthContext);
+  const { updateDonatedFoodAPI } = useAllFetchApi();
+  const queryClient = useQueryClient();
+  const navigate = useNavigate();
   const { id } = useParams();
   const food = useLoaderData();
+
+  const { mutate: updateFood } = useMutation({
+    mutationFn: updateDonatedFoodAPI,
+    onSuccess: (data) => {
+      if (data.modifiedCount) {
+        sweetSuccess("Food details updated successfully");
+        navigate("/manageMyFoods");
+        queryClient.invalidateQueries(["featuredFoods"]);
+      } else {
+        sweetError("Please Change at least one data field");
+      }
+    },
+    onError: (error) => {
+      sweetError(error.message || "Something went wrong deeply");
+    },
+  });
+
+  const handleUpdateFoodData = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const formData = new FormData(form);
+    const updatedFoodDetails = Object.fromEntries(formData.entries());
+    console.log(updatedFoodDetails);
+    updateFood({
+      id: food._id,
+      updatedData: {
+        ...updatedFoodDetails,
+        userEmail: currentUser?.email,
+      },
+    });
+  };
+
   console.log(food);
   console.log(id);
+
   return (
     <div className="max-w-screen-2xl mx-auto my-8">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">
         Update Donated Food Details
       </h1>
-      <form className="smx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl">
+      <form
+        onSubmit={handleUpdateFoodData}
+        className="smx-auto px-4 py-8 grid grid-cols-1 md:grid-cols-2 gap-6 p-6 rounded-2xl"
+      >
         <div>
           <label className="label font-semibold">Food Name</label>
           <input
@@ -111,7 +157,6 @@ const UpdateDonatedFood = () => {
             rows={3}
           ></textarea>
         </div>
-        <input type="hidden" name="status" value="available" />
         <div className="md:col-span-2">
           <button
             type="submit"

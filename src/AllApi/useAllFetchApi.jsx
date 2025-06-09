@@ -47,12 +47,22 @@ const useAllFetchApi = () => {
     return response.data;
   };
 
+  // get method to get requested food by specific requested user
+
+  const requestedFoodsByUserAPI = async (email) => {
+    const response = await axiosSecure.get(
+      `${baseUrl}/requestedFoods?email=${email}`,
+    );
+    return response.data;
+  };
+
   return {
     addFoodAPI,
     allFeaturedFoodsAPI,
     allAvailableFoodsAPI,
     requestFoodAPI,
     donarFoodAPI,
+    requestedFoodsByUserAPI
   };
 };
 

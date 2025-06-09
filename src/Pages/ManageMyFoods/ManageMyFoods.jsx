@@ -2,23 +2,40 @@ import React, { useContext } from "react";
 import { FaPen, FaTrash } from "react-icons/fa";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
-import { useQuery } from "@tanstack/react-query";
+import { useMutation, useQuery, useQueryClient } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import { Link, useNavigate } from "react-router";
+import { sweetError, sweetSuccess } from "../../Utilities/alert";
+import Swal from "sweetalert2";
 
 const ManageMyFoods = () => {
   const { currentUser } = useContext(AuthContext);
   const navigate = useNavigate();
-  const { donarFoodAPI } = useAllFetchApi();
+  const queryClient = useQueryClient();
+  const { donarFoodAPI, deleteDonatedFoodAPI } = useAllFetchApi();
   const {
     data: myFoods = [],
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["donarFoods", "abc@gmail.com"],
+    queryKey: ["donarFoods", currentUser.email],
     queryFn: () => donarFoodAPI(currentUser.email),
     enabled: !!currentUser?.email,
+  });
+
+  const { mutate: deleteFood } = useMutation({
+    mutationFn: deleteDonatedFoodAPI,
+    onSuccess: (data) => {
+      if (data.deletedCount) {
+        sweetSuccess("Food deleted from database successfully");
+        queryClient.invalidateQueries(["donarFoods", currentUser.email]);
+        queryClient.invalidateQueries(["featuredFoods"]);
+      }
+    },
+    onError: (error) => {
+      sweetError(error.message);
+    },
   });
 
   if (isLoading) {
@@ -27,6 +44,23 @@ const ManageMyFoods = () => {
   if (isError) {
     return <p>Error:{error.message}</p>;
   }
+
+  const handleDelete = (id) => {
+    console.log(id);
+    Swal.fire({
+      title: "Are you sure?",
+      text: "You won't be able to revert this!",
+      icon: "warning",
+      showCancelButton: true,
+      confirmButtonColor: "#3085d6",
+      cancelButtonColor: "#d33",
+      confirmButtonText: "Yes, delete it!",
+    }).then((result) => {
+      if (result.isConfirmed) {
+        deleteFood({ id, email: currentUser.email });
+      }
+    });
+  };
 
   console.log(myFoods);
   return (
@@ -99,9 +133,12 @@ const ManageMyFoods = () => {
                     </td>
                     <th>
                       <div className="flex gap-2">
-                        <Link className="btn btn-sm btn-primary text-white text-base font-bold">
+                        <button
+                          onClick={() => handleDelete(food._id)}
+                          className="btn btn-sm btn-primary text-white text-base font-bold"
+                        >
                           <FaTrash></FaTrash>
-                        </Link>
+                        </button>
                         <Link
                           to={`/updateDonatedFood/${food._id}`}
                           className="btn btn-sm btn-primary text-white text-base font-bold"

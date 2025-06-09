@@ -32,7 +32,7 @@ const useAllFetchApi = () => {
 
   const requestFoodAPI = async (requestFood) => {
     const response = await axiosSecure.post(
-      `${baseUrl}/requestedFoods`,
+      `/requestedFoods`,
       requestFood,
     );
     return response.data;
@@ -42,7 +42,7 @@ const useAllFetchApi = () => {
 
   const donarFoodAPI = async (email) => {
     const response = await axiosSecure.get(
-      `${baseUrl}/donatedFoods?email=${email}`,
+      `/donatedFoods?email=${email}`,
     );
     return response.data;
   };
@@ -51,7 +51,7 @@ const useAllFetchApi = () => {
 
   const requestedFoodsByUserAPI = async (email) => {
     const response = await axiosSecure.get(
-      `${baseUrl}/requestedFoods?email=${email}`,
+      `/requestedFoods?email=${email}`,
     );
     return response.data;
   };
@@ -65,6 +65,12 @@ const useAllFetchApi = () => {
     return response.data;
   };
 
+
+  // delete method to delete donated food from database
+  const deleteDonatedFoodAPI=async ({id,email})=>{
+    const response=await axiosSecure.delete(`/foodCollection/${id}?email=${email}`)
+    return response.data
+  }
   return {
     addFoodAPI,
     allFeaturedFoodsAPI,
@@ -73,6 +79,7 @@ const useAllFetchApi = () => {
     donarFoodAPI,
     requestedFoodsByUserAPI,
     updateDonatedFoodAPI,
+    deleteDonatedFoodAPI
   };
 };
 

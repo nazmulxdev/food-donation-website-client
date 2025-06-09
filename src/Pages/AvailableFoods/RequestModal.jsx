@@ -146,8 +146,9 @@ const RequestModal = ({ food, onClose, onRequestSuccess }) => {
             <textarea
               className="textarea textarea-bordered"
               placeholder="Any message to the donor?"
-              defaultValue={food.notes}
+              defaultValue={""}
               onChange={(e) => setNotes(e.target.value)}
+              required
             />
           </div>
         </div>

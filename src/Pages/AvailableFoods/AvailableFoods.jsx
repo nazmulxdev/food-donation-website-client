@@ -105,6 +105,18 @@ const AvailableFoods = () => {
                       <span className="text-accent">{food.quantity}</span>
                     </p>
                     <p className="font-semibold">
+                      <span>Status:</span>{" "}
+                      <span
+                        className={`font-semibold ${
+                          food.status === "available"
+                            ? "text-green-500"
+                            : "text-red-500"
+                        }`}
+                      >
+                        {food.status}
+                      </span>
+                    </p>
+                    <p className="font-semibold">
                       Expire Date:{" "}
                       <span className="text-accent">
                         {food.expiry.split("T")[0]}

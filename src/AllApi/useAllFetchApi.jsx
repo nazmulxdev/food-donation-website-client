@@ -28,7 +28,6 @@ const useAllFetchApi = () => {
 
   // get specific foods by their id
 
-
   // post method for food request
 
   const requestFoodAPI = async (requestFood) => {
@@ -38,11 +37,22 @@ const useAllFetchApi = () => {
     );
     return response.data;
   };
+
+  // get method to get specific donar shared food
+
+  const donarFoodAPI = async (email) => {
+    const response = await axiosSecure.get(
+      `${baseUrl}/donatedFoods?email=${email}`,
+    );
+    return response.data;
+  };
+
   return {
     addFoodAPI,
     allFeaturedFoodsAPI,
     allAvailableFoodsAPI,
     requestFoodAPI,
+    donarFoodAPI,
   };
 };
 

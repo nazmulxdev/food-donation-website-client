@@ -1,6 +1,8 @@
 import { motion } from "framer-motion";
 import { useContext, useState } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
+import useAllFetchApi from "../../AllApi/useAllFetchApi";
+import { sweetError, sweetSuccess } from "../../Utilities/alert";
 
 const RequestModal = ({ food, onClose, onRequestSuccess }) => {
   const [notes, setNotes] = useState("");
@@ -8,6 +10,7 @@ const RequestModal = ({ food, onClose, onRequestSuccess }) => {
   const { currentUser } = useContext(AuthContext);
 
   const currentDate = new Date().toLocaleString();
+  const { requestFoodAPI } = useAllFetchApi();
 
   const handleSubmit = () => {
     const requestData = {
@@ -24,7 +27,15 @@ const RequestModal = ({ food, onClose, onRequestSuccess }) => {
     };
 
     console.log("Submitting Request:", requestData);
-    onRequestSuccess();
+    requestFoodAPI(requestData)
+      .then((data) => {
+        console.log(data);
+        sweetSuccess("Food requested Successfully");
+        onRequestSuccess();
+      })
+      .catch((error) => {
+        sweetError(error);
+      });
   };
 
   return (
@@ -135,7 +146,7 @@ const RequestModal = ({ food, onClose, onRequestSuccess }) => {
             <textarea
               className="textarea textarea-bordered"
               placeholder="Any message to the donor?"
-              value={notes}
+              defaultValue={food.notes}
               onChange={(e) => setNotes(e.target.value)}
             />
           </div>

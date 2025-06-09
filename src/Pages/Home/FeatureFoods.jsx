@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import AllFetchApi from "../../AllApi/AllFetchApi";
+import useAllFetchApi from "../../AllApi/useAllFetchApi";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import { sweetError } from "../../Utilities/alert";
@@ -23,7 +23,7 @@ const itemVariants = {
 };
 
 const FeatureFoods = () => {
-  const { allFeaturedFoodsAPI } = AllFetchApi();
+  const { allFeaturedFoodsAPI } = useAllFetchApi();
 
   const {
     data: featuredFoods,

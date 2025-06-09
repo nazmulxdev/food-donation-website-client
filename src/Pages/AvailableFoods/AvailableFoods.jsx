@@ -1,11 +1,11 @@
 import { useEffect, useState } from "react";
-import AllFetchApi from "../../AllApi/AllFetchApi";
+import useAllFetchApi from "../../AllApi/useAllFetchApi";
 import { FaArrowDown, FaArrowUp } from "react-icons/fa";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import { Link } from "react-router";
 
 const AvailableFoods = () => {
-  const { allAvailableFoodsAPI } = AllFetchApi();
+  const { allAvailableFoodsAPI } = useAllFetchApi();
   const [foods, setFoods] = useState([]);
   const [loading, setLoading] = useState(true);
   const [sort, setSort] = useState("all");

@@ -10,9 +10,8 @@ import AddFood from "../Pages/AddFood/AddFood";
 import ManageMyFoods from "../Pages/ManageMyFoods/ManageMyFoods";
 import MyFoodRequest from "../Pages/MyFoodRequesrt/MyFoodRequest";
 import FoodDetails from "../Pages/AvailableFoods/FoodDetails";
-import AllFetchApi from "../AllApi/AllFetchApi";
 import LoadingSpinner from "../Components/LoadingSpinner";
-const { singleFoodAPI } = AllFetchApi();
+import { singleFoodAPI } from "../AllApi/singleFoodApiFetch";
 
 const Router = createBrowserRouter([
   {

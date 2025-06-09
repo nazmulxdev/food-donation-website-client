@@ -1,13 +1,13 @@
 import React, { useContext } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import { sweetError, sweetSuccess } from "../../Utilities/alert";
-import AllFetchApi from "../../AllApi/AllFetchApi";
+import useAllFetchApi from "../../AllApi/useAllFetchApi";
 import { useMutation } from "@tanstack/react-query";
 
 const AddFood = () => {
   const { currentUser } = useContext(AuthContext);
 
-  const { addFoodAPI } = AllFetchApi();
+  const { addFoodAPI } = useAllFetchApi();
 
   const addFoodMutation = useMutation({
     mutationFn: addFoodAPI,

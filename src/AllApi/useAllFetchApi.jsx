@@ -1,7 +1,10 @@
 import axios from "axios";
+import useAxiosSecure from "./useAxiosSecure";
 
-const AllFetchApi = () => {
+const useAllFetchApi = () => {
   const baseUrl = import.meta.env.VITE_URL;
+
+  const axiosSecure = useAxiosSecure();
   // post method for adding food details in db
   const addFoodAPI = async (foodData) => {
     const response = await axios.post(`${baseUrl}/foodCollection`, foodData);
@@ -23,15 +26,24 @@ const AllFetchApi = () => {
     return response.data;
   };
 
-
   // get specific foods by their id
 
-  const singleFoodAPI=async (id)=>{
-    const response=await axios.get(`${baseUrl}/foodDetails/${id}`);
-    return response.data;
-  }
 
-  return { addFoodAPI, allFeaturedFoodsAPI, allAvailableFoodsAPI,singleFoodAPI };
+  // post method for food request
+
+  const requestFoodAPI = async (requestFood) => {
+    const response = await axiosSecure.post(
+      `${baseUrl}/requestedFoods`,
+      requestFood,
+    );
+    return response.data;
+  };
+  return {
+    addFoodAPI,
+    allFeaturedFoodsAPI,
+    allAvailableFoodsAPI,
+    requestFoodAPI,
+  };
 };
 
-export default AllFetchApi;
+export default useAllFetchApi;

@@ -12,6 +12,7 @@ import MyFoodRequest from "../Pages/MyFoodRequesrt/MyFoodRequest";
 import FoodDetails from "../Pages/AvailableFoods/FoodDetails";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { singleFoodAPI } from "../AllApi/singleFoodApiFetch";
+import UpdateDonatedFood from "../Pages/ManageMyFoods/UpdateDonatedFood";
 
 const Router = createBrowserRouter([
   {
@@ -53,6 +54,18 @@ const Router = createBrowserRouter([
             <ManageMyFoods></ManageMyFoods>
           </PrivateRoute>
         ),
+      },
+      {
+        path: "/updateDonatedFood/:id",
+        loader: ({ params }) => {
+          return singleFoodAPI(params.id);
+        },
+        element: (
+          <PrivateRoute>
+            <UpdateDonatedFood></UpdateDonatedFood>
+          </PrivateRoute>
+        ),
+        hydrateFallbackElement: <LoadingSpinner></LoadingSpinner>,
       },
       {
         path: "/myFoodRequests",

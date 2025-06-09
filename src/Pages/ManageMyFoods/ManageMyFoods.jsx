@@ -4,7 +4,7 @@ import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
 import { useQuery } from "@tanstack/react-query";
 import LoadingSpinner from "../../Components/LoadingSpinner";
-import { useNavigate } from "react-router";
+import { Link, useNavigate } from "react-router";
 
 const ManageMyFoods = () => {
   const { currentUser } = useContext(AuthContext);
@@ -99,12 +99,15 @@ const ManageMyFoods = () => {
                     </td>
                     <th>
                       <div className="flex gap-2">
-                        <button className="btn btn-sm btn-primary text-white text-base font-bold">
+                        <Link className="btn btn-sm btn-primary text-white text-base font-bold">
                           <FaTrash></FaTrash>
-                        </button>
-                        <button className="btn btn-sm btn-primary text-white text-base font-bold">
+                        </Link>
+                        <Link
+                          to={`/updateDonatedFood/${food._id}`}
+                          className="btn btn-sm btn-primary text-white text-base font-bold"
+                        >
                           <FaPen></FaPen>
-                        </button>
+                        </Link>
                       </div>
                     </th>
                   </tr>

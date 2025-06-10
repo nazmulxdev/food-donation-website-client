@@ -1,12 +1,60 @@
-# React + Vite
+# Project Name : Food Sharing Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## Website Title Meals4Gaza
 
-Currently, two official plugins are available:
+# Project Site Type
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- This is the project client site
 
-## Expanding the ESLint configuration
+# Project Purpose
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- This project's main purpose is to share extra food and get donated food.
+
+# Project's Live Site Link
+
+- pending
+
+- pending
+
+# Key Feature of this Project
+
+There are some key feature of this site . You have to log in or sign up first to experience this feature. There is a sort brief is given below
+
+
+- Each pages have their own title. In every changing of the website route you will appear this on title bar.
+
+- This project is fully secured by firebase access token. So, there is no possibility of pinch or steal of your sensitive data like your donated food data and requested food data.
+
+- In the home page the feature food section update dynamically according of the most quantity of available food .
+
+
+- In the Available foods page  you will find all the available foods which has donated. From this page , if you click specific food details button, you will navigate that food's full details page and see the full details of this page.
+
+- You can request for the meal from this page and you will see your all requested food in the my requested food.
+
+- In the add food page you can donate your extra food by share the food details.
+
+- In manage my food page you can see all the foods which you have donated. If you want ,you can able to delete or edit your donated foods.
+
+- In this website there is log in and register system. You can create you profile or can use you gmail to create or log in this website.
+
+# NPM packages used for this website
+
+- React Router
+- TanStack Query
+- Axios
+- Framer Motion
+- Fire Base
+- React icons
+- Tailwind css
+- Daisy UI
+- React-spinners
+- sweetalert2
+- React Countup
+- React Countdown
+- react-tooltip
+- lottie-react
+- React Slick
+- Slick Carousel
+
+

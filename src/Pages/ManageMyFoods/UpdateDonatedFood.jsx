@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLoaderData, useNavigate, useParams } from "react-router";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
@@ -16,6 +16,9 @@ const UpdateDonatedFood = () => {
   const navigate = useNavigate();
   const { id } = useParams();
   const food = useLoaderData();
+  useEffect(() => {
+    document.title = "Meals4Gaza | UpdateDonatedFood";
+  }, []);
 
   const { mutate: updateFood } = useMutation({
     mutationFn: updateDonatedFoodAPI,
@@ -174,7 +177,7 @@ const UpdateDonatedFood = () => {
         </div>
         <h1 className="font-bold text-center mb-8">
           Have changed mind?{" "}
-          <Link to="/manageMyFoods" className="text-primary">
+          <Link to="/manageMyFoods" className="text-primary hover:underline">
             go back!
           </Link>
         </h1>

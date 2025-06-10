@@ -14,6 +14,7 @@ const AvailableFoods = () => {
   console.log(foods);
 
   useEffect(() => {
+  document.title="Meals4Gaza | AvailableFoods"
     setLoading(true);
     allAvailableFoodsAPI(sort, searchTerm).then((res) => {
       setFoods(res);

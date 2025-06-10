@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
@@ -10,6 +10,9 @@ const MyFoodRequest = () => {
   const navigate = useNavigate();
   const { currentUser } = useContext(AuthContext);
   const { requestedFoodsByUserAPI } = useAllFetchApi();
+  useEffect(() => {
+    document.title = "Meals4Gaza | MyRequest";
+  }, []);
   const {
     data: myRequestedFoods = [],
     isLoading,

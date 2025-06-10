@@ -1,4 +1,4 @@
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import NavBar from "../../Components/NavBar";
 import AuthContext from "../../Context/AuthContext/AuthContext";
@@ -10,7 +10,9 @@ const Register = () => {
     useContext(AuthContext);
   const location = useLocation();
   const navigate = useNavigate();
-
+  useEffect(() => {
+    document.title = "Meals4Gaza | Register";
+  }, []);
   const handleRegister = (e) => {
     e.preventDefault();
     const form = e.target;

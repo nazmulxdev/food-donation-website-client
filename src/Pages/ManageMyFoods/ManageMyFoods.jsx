@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { FaPen, FaTrash } from "react-icons/fa";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
@@ -13,6 +13,9 @@ const ManageMyFoods = () => {
   const navigate = useNavigate();
   const queryClient = useQueryClient();
   const { donarFoodAPI, deleteDonatedFoodAPI } = useAllFetchApi();
+  useEffect(() => {
+    document.title = "Meals4Gaza | MyDonate";
+  }, []);
   const {
     data: myFoods = [],
     isLoading,
@@ -61,8 +64,6 @@ const ManageMyFoods = () => {
       }
     });
   };
-
-  console.log(myFoods);
   return (
     <div className="max-w-screen-2xl mx-auto my-8">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">

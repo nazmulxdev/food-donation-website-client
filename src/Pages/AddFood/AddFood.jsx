@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import { sweetError, sweetSuccess } from "../../Utilities/alert";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
@@ -29,6 +29,10 @@ const AddFood = () => {
     addFoodMutation.mutate(donatedMeal);
     form.reset();
   };
+
+  useEffect(() => {
+    document.title = "Meals4Gaza | AddFood";
+  }, []);
   return (
     <div className="max-w-screen-2xl mx-auto p-4 my-8">
       <h1 className="text-3xl md:text-4xl font-bold text-primary my-4 text-center">

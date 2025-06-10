@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import LoadingSpinner from "../../Components/LoadingSpinner";
 import Banner from "./Banner";
@@ -7,6 +7,9 @@ import Stories from "./Stories";
 import FeatureFoods from "./FeatureFoods";
 
 const Home = () => {
+  useEffect(() => {
+    document.title = "Meals4Gaza | Home";
+  }, []);
   return (
     <div>
       <Banner></Banner>

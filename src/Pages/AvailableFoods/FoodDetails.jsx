@@ -2,29 +2,13 @@ import { motion } from "framer-motion";
 import { FaUser, FaEnvelope, FaMapMarkerAlt, FaClock } from "react-icons/fa";
 import Countdown from "react-countdown";
 import { Link, useLoaderData, useRevalidator } from "react-router";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import RequestModal from "./RequestModal";
 
 const FoodDetails = () => {
   const [isOpenModal, setOpenModal] = useState(false);
-
-  // const { id } = useParams();
-  // const { singleFoodAPI } = useAllFetchApi();
-  // const [food, setFood] = useState({});
-  // const [loading, setLoading] = useState(true);
   const food = useLoaderData();
   const revalidator = useRevalidator();
-  // useEffect(() => {
-  //   singleFoodAPI(id)
-  //     .then((data) => {
-  //       setFood(data);
-  //       setLoading(false);
-  //     })
-  //     .catch((error) => {
-  //       console.log(error);
-  //       setLoading(false);
-  //     });
-  // }, [id, singleFoodAPI]);
   const {
     foodName,
     foodImage,
@@ -42,6 +26,10 @@ const FoodDetails = () => {
     setOpenModal(false);
     revalidator.revalidate();
   };
+
+  useEffect(() => {
+    document.title = `Meals4Gaza | ${foodName}`;
+  }, [foodName]);
   return (
     <>
       <motion.div

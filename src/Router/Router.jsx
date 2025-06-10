@@ -13,6 +13,7 @@ import FoodDetails from "../Pages/AvailableFoods/FoodDetails";
 import LoadingSpinner from "../Components/LoadingSpinner";
 import { singleFoodAPI } from "../AllApi/singleFoodApiFetch";
 import UpdateDonatedFood from "../Pages/ManageMyFoods/UpdateDonatedFood";
+import ErrorPage from "../Pages/Error/ErrorPage";
 
 const Router = createBrowserRouter([
   {
@@ -84,6 +85,10 @@ const Router = createBrowserRouter([
   {
     path: "/register",
     Component: Register,
+  },
+  {
+    path: "/*",
+    Component: ErrorPage,
   },
 ]);
 

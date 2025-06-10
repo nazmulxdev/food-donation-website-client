@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { Link, useLocation, useNavigate } from "react-router";
 import NavBar from "../../Components/NavBar";
 import AuthContext from "../../Context/AuthContext/AuthContext";
@@ -39,6 +39,10 @@ const LogIn = () => {
         sweetError(error.message);
       });
   };
+
+  useEffect(() => {
+    document.title = "Meals4Gaza | LogIn";
+  }, []);
   return (
     <div>
       <NavBar></NavBar>

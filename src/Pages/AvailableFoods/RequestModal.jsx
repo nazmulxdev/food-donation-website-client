@@ -25,11 +25,8 @@ const RequestModal = ({ food, onClose, onRequestSuccess }) => {
       expiryDate: new Date(food.expiry).toLocaleString(),
       notes,
     };
-
-    console.log("Submitting Request:", requestData);
     requestFoodAPI(requestData)
-      .then((data) => {
-        console.log(data);
+      .then(() => {
         sweetSuccess("Food requested Successfully");
         onRequestSuccess();
       })

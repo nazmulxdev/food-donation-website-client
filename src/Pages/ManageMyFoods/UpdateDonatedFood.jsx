@@ -1,9 +1,8 @@
 import React, { useContext, useEffect } from "react";
-import { Link, useLoaderData, useNavigate, useParams } from "react-router";
+import { Link, useLoaderData, useNavigate } from "react-router";
 import AuthContext from "../../Context/AuthContext/AuthContext";
 import useAllFetchApi from "../../AllApi/useAllFetchApi";
 import {
-  QueryClient,
   useMutation,
   useQueryClient,
 } from "@tanstack/react-query";
@@ -14,7 +13,6 @@ const UpdateDonatedFood = () => {
   const { updateDonatedFoodAPI } = useAllFetchApi();
   const queryClient = useQueryClient();
   const navigate = useNavigate();
-  const { id } = useParams();
   const food = useLoaderData();
   useEffect(() => {
     document.title = "Meals4Gaza | UpdateDonatedFood";
@@ -41,7 +39,6 @@ const UpdateDonatedFood = () => {
     const form = e.target;
     const formData = new FormData(form);
     const updatedFoodDetails = Object.fromEntries(formData.entries());
-    console.log(updatedFoodDetails);
     updateFood({
       id: food._id,
       updatedData: {
@@ -50,10 +47,6 @@ const UpdateDonatedFood = () => {
       },
     });
   };
-
-  console.log(food);
-  console.log(id);
-
   return (
     <div className="max-w-screen-2xl mx-auto my-8">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">

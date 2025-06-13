@@ -12,9 +12,9 @@
 
 # Project's Live Site Link
 
-- pending
+- https://karamplate.web.app/
 
-- pending
+- https://karamplate.firebaseapp.com/
 
 # Key Feature of this Project
 

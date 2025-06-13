@@ -11,7 +11,6 @@ const AvailableFoods = () => {
   const [sort, setSort] = useState("all");
   const [isThreeCol, setIsThreeCol] = useState(true);
   const [searchTerm, setSearchTerm] = useState("");
-  console.log(foods);
 
   useEffect(() => {
   document.title="Meals4Gaza | AvailableFoods"

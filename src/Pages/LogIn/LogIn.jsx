@@ -14,7 +14,6 @@ const LogIn = () => {
     e.preventDefault();
     const email = e.target.email.value;
     const password = e.target.password.value;
-    console.log(email, password);
     signInEmailPassword(email, password)
       .then((user) => {
         const textMessage = "You have successfully logged in";

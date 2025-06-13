@@ -19,7 +19,6 @@ const Register = () => {
     const formData = new FormData(form);
     const userData = Object.fromEntries(formData.entries());
     const { email, password, name, photoUrl } = userData;
-    console.log(email, password, name, photoUrl);
     registerUser(email, password)
       .then(() => {
         updateUser({ displayName: name, photoURL: photoUrl }).then(() => {

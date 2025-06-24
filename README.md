@@ -89,5 +89,4 @@ You can now view the project by visiting `http://localhost:5173` (or any other p
 ### **Relevant Links**
 
 * **Live Site:** https://karamplate.web.app/
-* **Client-Side Code:** *[Add your client-side repository link here]*
-* **Server-Side Code:** *[Add your server-side repository link here]*
+* **Server-Side Code:** https://new-meals4gaza.vercel.app/

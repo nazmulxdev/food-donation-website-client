@@ -5,7 +5,7 @@ Meals4Gaza is a food-sharing platform whose main purpose is to collect surplus f
 <div align="center">
 
 [![Live Site](https://img.shields.io/badge/Live_Site-karamplate.web.app-brightgreen?style=for-the-badge)](https://karamplate.web.app/)
-[![Server URL](https://img.shields.io/badge/Server-Online-blueviolet?style=for-the-badge)](https://new-meals4gaza.vercel.app/)
+[![Server Repo](https://img.shields.io/badge/Client_Repo-GitHub-333?style=for-the-badge&logo=github)](https://github.com/nazmulxdev/food-donation-website-server?tab=readme-ov-file)
 
 </div>
 

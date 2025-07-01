@@ -17,9 +17,7 @@ The main goal of this project is to create a community-based platform where user
 
 ### **Screenshot**
 
-*You can add a nice screenshot of your project here.*
-
-![Project Screenshot](https://placehold.co/800x450/2d3748/ffffff?text=Meals4Gaza+Homepage)
+![Project Screenshot](https://3vyg2acdxl.ufs.sh/f/vZKcTYAMgkubrl8Rzbh0TKXxdZE1tcmLhfnAGID8rkeViuO2)
 
 ---
 
@@ -59,22 +57,22 @@ The following main technologies were used in this project:
 
 The following NPM packages are used in this project:
 
-* React Router
-* TanStack Query
-* Axios
-* Framer Motion
-* Firebase
-* React Icons
-* Tailwind CSS
-* Daisy UI
-* React-spinners
-* SweetAlert2
-* React Countup
-* React Countdown
-* React-tooltip
-* Lottie-react
-* React Slick
-* Slick Carousel
+- React Router
+- TanStack Query
+- Axios
+- Framer Motion
+- Firebase
+- React Icons
+- Tailwind CSS
+- Daisy UI
+- React-spinners
+- SweetAlert2
+- React Countup
+- React Countdown
+- React-tooltip
+- Lottie-react
+- React Slick
+- Slick Carousel
 
 ---
 
@@ -83,22 +81,26 @@ The following NPM packages are used in this project:
 Follow these steps to run the project on your local machine:
 
 **1. Clone the repository:**
+
 ```bash
 git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
 ```
 
 **2. Navigate to the project directory:**
+
 ```bash
 cd your-repository-name
 ```
 
 **3. Install NPM packages:**
+
 ```bash
 npm install
 ```
 
 **4. Set up environment variables:**
 Create a file named `.env.local` in the root directory of the project and add your Firebase configuration.
+
 ```.env.local
 VITE_APIKEY=your_firebase_apikey
 VITE_AUTHDOMAIN=your_firebase_authdomain
@@ -107,18 +109,20 @@ VITE_STORAGEBUCKET=your_firebase_storagebucket
 VITE_MESSAGINGSENDERID=your_firebase_messagingsenderid
 VITE_APPID=your_firebase_appid
 ```
-*(Replace the values above with your own Firebase credentials.)*
+
+_(Replace the values above with your own Firebase credentials.)_
 
 **5. Run the project:**
+
 ```bash
 npm run dev
 ```
+
 You can now view the project by visiting `http://localhost:5173` (or any other port shown in the terminal) in your browser.
 
 ---
 
 ### **Relevant Links**
 
-* **Live Site:** [https://karamplate.web.app/](https://karamplate.web.app/)
-* **Server-Side Code:** [https://new-meals4gaza.vercel.app/](https://new-meals4gaza.vercel.app/)
-* **Client-Side Repository:** *[Add your client-side repository link here]*
+- **Live Site:** [https://karamplate.web.app/](https://karamplate.web.app/)
+- **Server-Side Code:** [https://new-meals4gaza.vercel.app/](https://new-meals4gaza.vercel.app/)

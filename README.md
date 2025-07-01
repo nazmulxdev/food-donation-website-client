@@ -1,60 +1,92 @@
-# Project Name : Food Sharing Website
+# Meals4Gaza - Food Sharing Website
 
-## Website Title Meals4Gaza
+Meals4Gaza is a food-sharing platform whose main purpose is to collect surplus food from people and deliver it to those in need.
 
-# Project Site Type
+### **Project Overview**
 
-- This is the project client site
+The main goal of this project is to create a community-based platform where users can share their surplus food with others. This helps prevent food waste and aids people in need. Users can donate food, view available food items, and request meals if needed.
 
-# Project Purpose
+### **Screenshot**
 
-- This project's main purpose is to share extra food and get donated food.
+*You can add a nice screenshot of your project here.*
 
-# Project's Live Site Link
+### **Key Features**
 
-- https://karamplate.web.app/
+✅ **Dynamic Title:** Each page has its own unique title that updates in the browser's title bar as the route changes.
 
-- https://karamplate.firebaseapp.com/
+✅ **Secure Authentication:** The entire project is secured with Firebase access tokens, ensuring the safety of user's sensitive data, such as their donated and requested food information.
 
-# Key Feature of this Project
+✅ **Featured Foods Section:** The featured foods section on the homepage updates dynamically based on the highest quantity of available food.
 
-There are some key feature of this site . You have to log in or sign up first to experience this feature. There is a sort brief is given below
+✅ **Food Request System:** On the "Available Foods" page, users can view the details of any food item and request it.
 
+✅ **Food Management Dashboard:** Users can donate food on the "Add Food" page and can view, edit, or delete all their donated food items on the "Manage My Food" page.
 
-- Each pages have their own title. In every changing of the website route you will appear this on title bar.
+✅ **User Profile:** The website has a login and registration system. Users can create a profile or use their Google account to easily sign up or log in.
 
-- This project is fully secured by firebase access token. So, there is no possibility of pinch or steal of your sensitive data like your donated food data and requested food data.
+### **Technologies Used**
 
-- In the home page the feature food section update dynamically according of the most quantity of available food .
+The following main technologies were used in this project:
 
+### **Dependencies Used**
 
-- In the Available foods page  you will find all the available foods which has donated. From this page , if you click specific food details button, you will navigate that food's full details page and see the full details of this page.
+The following NPM packages are used in this project:
 
-- You can request for the meal from this page and you will see your all requested food in the my requested food.
+* React Router
+* TanStack Query
+* Axios
+* Framer Motion
+* Firebase
+* React Icons
+* Tailwind CSS
+* Daisy UI
+* React-spinners
+* SweetAlert2
+* React Countup
+* React Countdown
+* React-tooltip
+* Lottie-react
+* React Slick
+* Slick Carousel
 
-- In the add food page you can donate your extra food by share the food details.
+### **Getting Started Locally**
 
-- In manage my food page you can see all the foods which you have donated. If you want ,you can able to delete or edit your donated foods.
+Follow these steps to run the project on your local machine:
 
-- In this website there is log in and register system. You can create you profile or can use you gmail to create or log in this website.
+**1. Clone the repository:**
+```bash
+git clone [https://github.com/your-username/your-repository-name.git](https://github.com/your-username/your-repository-name.git)
+```
 
-# NPM packages used for this website
+**2. Navigate to the project directory:**
+```bash
+cd your-repository-name
+```
 
-- React Router
-- TanStack Query
-- Axios
-- Framer Motion
-- Fire Base
-- React icons
-- Tailwind css
-- Daisy UI
-- React-spinners
-- sweetalert2
-- React Countup
-- React Countdown
-- react-tooltip
-- lottie-react
-- React Slick
-- Slick Carousel
+**3. Install NPM packages:**
+```bash
+npm install
+```
 
+**4. Set up environment variables:**
+Create a file named `.env.local` in the root directory of the project and add your Firebase configuration.
+```
+VITE_APIKEY=your_firebase_apikey
+VITE_AUTHDOMAIN=your_firebase_authdomain
+VITE_PROJECTID=your_firebase_projectid
+VITE_STORAGEBUCKET=your_firebase_storagebucket
+VITE_MESSAGINGSENDERID=your_firebase_messagingsenderid
+VITE_APPID=your_firebase_appid
+```
+*(Replace the values above with your own Firebase credentials.)*
 
+**5. Run the project:**
+```bash
+npm run dev
+```
+You can now view the project by visiting `http://localhost:5173` (or any other port shown in the terminal) in your browser.
+
+### **Relevant Links**
+
+* **Live Site:** https://karamplate.web.app/
+* **Server-Side Code:** https://new-meals4gaza.vercel.app/

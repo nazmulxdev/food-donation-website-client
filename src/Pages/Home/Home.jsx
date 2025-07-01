@@ -5,6 +5,9 @@ import Banner from "./Banner";
 import Volunteer from "./Volunteer";
 import Stories from "./Stories";
 import FeatureFoods from "./FeatureFoods";
+import HowToWorks from "./HowToWork";
+import PartnerTrustBadges from "./PartnerTrustBadges";
+import CommunityChallenge from "./CommunityChallenge";
 
 const Home = () => {
   useEffect(() => {
@@ -14,8 +17,11 @@ const Home = () => {
     <div>
       <Banner></Banner>
       <FeatureFoods></FeatureFoods>
+      <HowToWorks></HowToWorks>
       <Volunteer></Volunteer>
+      <PartnerTrustBadges></PartnerTrustBadges>
       <Stories></Stories>
+      <CommunityChallenge></CommunityChallenge>
     </div>
   );
 };

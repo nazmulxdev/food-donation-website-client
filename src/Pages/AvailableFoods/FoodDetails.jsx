@@ -119,10 +119,7 @@ const FoodDetails = () => {
             </p>
 
             <div className="grid grid-cols-2 justify-betweens gap-16">
-              <Link
-                to="/availableFoods"
-                className="btn btn-primary text-white mt-4"
-              >
+              <Link to={-1} className="btn btn-primary text-white mt-4">
                 Go Back
               </Link>
               <button

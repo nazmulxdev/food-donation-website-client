@@ -60,7 +60,7 @@ const FeatureFoods = () => {
     }
   };
   return (
-    <div className="bg-white py-16 px-4 md:px-12 lg:px-24 max-w-screen-2xl mx-auto">
+    <div className="bg-white py-8 md:py-16 px-4 sm:px-6 md:px-12 lg:px-24 w-full mx-auto">
       <h1 className="text-3xl md:text-4xl font-bold text-primary mb-4 text-center">
         Featured Foods
       </h1>
@@ -71,16 +71,16 @@ const FeatureFoods = () => {
         community!
       </p>
       <motion.div
-        className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6"
+        className="grid grid-cols-1 gap-4 sm:grid-cols-2 sm:gap-6 lg:grid-cols-3 xl:grid-cols-4"
         variants={containerVariants}
         initial="hidden"
         whileInView="show"
-        viewport={{ once: false, amount: 0.2 }}
+        viewport={{ once: false, amount: 0.1 }}
       >
         {featuredFoods?.map((food) => (
           <motion.div
             key={food._id}
-            className="max-w-lg p-4 shadow-md bg-secondary"
+            className="w-full p-4 shadow-md bg-secondary"
             variants={itemVariants}
             whileHover={{
               scale: 1.03,
@@ -92,7 +92,7 @@ const FeatureFoods = () => {
                 <img
                   src={food.foodImage}
                   alt=""
-                  className="block object-cover object-center w-full rounded-md h-72"
+                  className="block object-cover object-center w-full rounded-md h-48 sm:h-60 xl:h-72"
                 />
               </div>
               <div className="space-y-2">
@@ -125,6 +125,12 @@ const FeatureFoods = () => {
                     </motion.span>
                   </span>
                 </p>
+                <Link
+                  to={`/foodDetails/${food._id}`}
+                  className="text-primary font-bold"
+                >
+                  See more
+                </Link>
               </div>
             </div>
           </motion.div>

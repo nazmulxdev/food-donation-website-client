@@ -1,5 +1,6 @@
 import { motion } from "framer-motion";
 import { FaUpload, FaSearch, FaHandsHelping } from "react-icons/fa";
+import { Link } from "react-router";
 
 const HowToWorks = () => {
   const steps = [
@@ -87,9 +88,12 @@ const HowToWorks = () => {
                 <h3 className="card-title text-2xl mb-3">{step.title}</h3>
                 <p>{step.desc}</p>
                 {index === 0 && (
-                  <button className="btn btn-sm mt-4 bg-white text-primary hover:bg-gray-100">
+                  <Link
+                    to="/addFood"
+                    className="btn btn-sm mt-4 bg-white text-primary hover:bg-gray-100"
+                  >
                     Donate Now
-                  </button>
+                  </Link>
                 )}
               </div>
             </motion.div>

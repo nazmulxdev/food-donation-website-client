@@ -30,14 +30,14 @@ const AboutPage = () => {
 
   return (
     <div className="min-h-screen">
-      {/* Enhanced Hero Section */}
+      {/*Hero Section */}
       <section className="hero min-h-[70vh] relative overflow-hidden">
         {/* Background with opacity */}
         <div className="absolute inset-0 bg-[url('https://3vyg2acdxl.ufs.sh/f/vZKcTYAMgkub1aUtcMPy8fSNEdI5XqpuMGo9wt7Vc4LmaYh0')] bg-cover bg-center">
           <div className="absolute inset-0  opacity-10"></div>
         </div>
 
-        {/* Hero content with more meaningful elements */}
+        {/* Hero content*/}
         <div className="hero-content text-center text-white relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
@@ -94,7 +94,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Mission Section - Now with secondary background */}
+      {/* Mission Section*/}
       <section className="py-16 px-4 md:px-8 bg-secondary">
         <div className="max-w-6xl mx-auto">
           <motion.div
@@ -171,7 +171,7 @@ const AboutPage = () => {
         </div>
       </section>
 
-      {/* Stats Section - Adjusted for theme */}
+      {/* Stats Section */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
           <motion.div className="text-center mb-12">

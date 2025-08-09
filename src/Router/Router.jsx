@@ -14,6 +14,7 @@ import LoadingSpinner from "../Components/LoadingSpinner";
 import { singleFoodAPI } from "../AllApi/singleFoodApiFetch";
 import UpdateDonatedFood from "../Pages/ManageMyFoods/UpdateDonatedFood";
 import ErrorPage from "../Pages/Error/ErrorPage";
+import AboutPage from "../Pages/About/AboutPage";
 
 const Router = createBrowserRouter([
   {
@@ -27,6 +28,10 @@ const Router = createBrowserRouter([
       {
         path: "/availableFoods",
         Component: AvailableFoods,
+      },
+      {
+        path: "/about-us",
+        Component: AboutPage,
       },
       {
         path: "/foodDetails/:id",

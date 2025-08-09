@@ -99,9 +99,9 @@ const AboutPage = () => {
           <motion.div
             variants={container}
             viewport={{ once: true }}
-            className="grid md:grid-cols-2 gap-12 items-center"
+            className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
-            <motion.div variants={item} className="order-2 md:order-1">
+            <motion.div variants={item} className="">
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral">
                 Our Mission to <span className="text-primary">Nourish</span>
               </h2>
@@ -239,7 +239,7 @@ const AboutPage = () => {
               A simple process creating meaningful impact
             </p>
           </motion.div>
-          <div className="timeline">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-2 justify-center ">
             {[
               {
                 icon: <FaUsers className="text-xl" />,
@@ -269,15 +269,10 @@ const AboutPage = () => {
             ].map((step, index) => (
               <motion.div
                 key={index}
-                initial={{ opacity: 0, x: index % 2 === 0 ? -50 : 50 }}
-                whileInView={{ opacity: 1, x: 0 }}
-                viewport={{ once: true }}
                 transition={{ duration: 0.5, delay: index * 0.2 }}
-                className={`timeline-item ${
-                  index % 2 === 0 ? "timeline-start" : "timeline-end"
-                } mb-8`}
+                className={`mb-8`}
               >
-                <div className="timeline-content card bg-base-100 p-6 shadow-lg">
+                <div className=" card bg-base-100 p-6 shadow-lg">
                   <div className="flex items-center gap-4 mb-4">
                     <div
                       className={`p-3 rounded-full ${step.color} text-secondary`}

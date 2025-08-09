@@ -123,7 +123,7 @@ const CommunityChallenge = () => {
                 onClick={async () => {
                   return Swal.fire({
                     title: "Camping Date Over!",
-                    text: "Sorry, this camping time is over. This camping is no longer available right naw.You can share your food.",
+                    text: "Sorry, this camping time is over. This camping is no longer available right now.You can share your food.",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",
@@ -145,7 +145,7 @@ const CommunityChallenge = () => {
                 onClick={async () => {
                   return Swal.fire({
                     title: "Camping Date Over!",
-                    text: "Sorry, this camping time is over. This camping is no longer available right naw.You can share your food.",
+                    text: "Sorry, this camping time is over. This camping is no longer available right now.You can share your food.",
                     icon: "warning",
                     showCancelButton: true,
                     confirmButtonColor: "#3085d6",

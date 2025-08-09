@@ -32,12 +32,12 @@ const AboutPage = () => {
       {/* Enhanced Hero Section */}
       <section className="hero min-h-[70vh] relative overflow-hidden">
         {/* Background with opacity */}
-        <div className="absolute inset-0 bg-[url('https://images.unsplash.com/photo-1543351611-58f69d7c1781?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1470&q=80')] bg-cover bg-center">
-          <div className="absolute inset-0  opacity-0"></div>
+        <div className="absolute inset-0 bg-[url('https://3vyg2acdxl.ufs.sh/f/vZKcTYAMgkub1aUtcMPy8fSNEdI5XqpuMGo9wt7Vc4LmaYh0')] bg-cover bg-center">
+          <div className="absolute inset-0  opacity-10"></div>
         </div>
 
         {/* Hero content with more meaningful elements */}
-        <div className="hero-content text-center text-secondary relative z-10">
+        <div className="hero-content text-center text-white relative z-10">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -66,11 +66,8 @@ const AboutPage = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <button className="btn btn-secondary btn-lg">
+              <button className="btn btn-primary text-white btn-lg">
                 <FaUtensils className="mr-2" /> Donate Food
-              </button>
-              <button className="btn btn-accent btn-lg">
-                <FaHandsHelping className="mr-2" /> Volunteer
               </button>
             </motion.div>
           </motion.div>
@@ -176,14 +173,9 @@ const AboutPage = () => {
       {/* Stats Section - Adjusted for theme */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-4 md:px-8">
-          <motion.div
-            initial={{ opacity: 0 }}
-            whileInView={{ opacity: 1 }}
-            viewport={{ once: true }}
-            className="text-center mb-12"
-          >
+          <motion.div className="text-center mb-12">
             <h2 className="text-3xl md:text-4xl font-bold">
-              Our <span className="">Impact</span> in Numbers
+              Our <span className="text-primary">Impact</span> in Numbers
             </h2>
             <p className="text-xl mt-4">
               Real change measured in meals shared and lives touched

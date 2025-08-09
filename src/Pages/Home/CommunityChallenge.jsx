@@ -2,8 +2,11 @@ import { motion } from "framer-motion";
 import { FaTrophy, FaUsers, FaCalendarAlt, FaShareAlt } from "react-icons/fa";
 import Lottie from "lottie-react";
 import celebrationAnimation from "../../assets/Animation - 1751380370062.json";
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router";
 
 const CommunityChallenge = () => {
+  const navigate = useNavigate();
   const challenge = {
     title: "Ramadan Food Drive",
     goal: 1000,
@@ -117,6 +120,21 @@ const CommunityChallenge = () => {
             {/* CTA Buttons */}
             <div className="flex flex-col sm:flex-row gap-4">
               <motion.button
+                onClick={async () => {
+                  return Swal.fire({
+                    title: "Camping Date Over!",
+                    text: "Sorry, this camping time is over. This camping is no longer available right naw.You can share your food.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes,Donate Naw!",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      navigate("/addFood");
+                    }
+                  });
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn btn-primary btn-lg flex-1 text-white"
@@ -124,6 +142,21 @@ const CommunityChallenge = () => {
                 Join Now
               </motion.button>
               <motion.button
+                onClick={async () => {
+                  return Swal.fire({
+                    title: "Camping Date Over!",
+                    text: "Sorry, this camping time is over. This camping is no longer available right naw.You can share your food.",
+                    icon: "warning",
+                    showCancelButton: true,
+                    confirmButtonColor: "#3085d6",
+                    cancelButtonColor: "#d33",
+                    confirmButtonText: "Yes,Donate Naw!",
+                  }).then((result) => {
+                    if (result.isConfirmed) {
+                      navigate("/addFood");
+                    }
+                  });
+                }}
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.98 }}
                 className="btn btn-outline btn-primary btn-lg flex-1 gap-2"

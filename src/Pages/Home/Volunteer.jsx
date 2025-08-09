@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 const Volunteer = () => {
   return (
@@ -27,9 +28,9 @@ const Volunteer = () => {
                 drives, and spread kindness.
               </p>
             </div>
-            <button className="btn btn-primary text-white w-full">
-              Join as Volunteer
-            </button>
+            <Link to="/addFood" className="btn btn-primary text-white w-full">
+              Join as Volunteer (Donate Food)
+            </Link>
           </div>
           <div className="bg-white rounded-2xl shadow-lg p-8 flex flex-col justify-between">
             <div>
@@ -42,9 +43,9 @@ const Volunteer = () => {
                 humanitarian projects and food relief efforts.
               </p>
             </div>
-            <button className="btn btn-primary text-white w-full">
-              Become a Partner
-            </button>
+            <Link to="/addFood" className="btn btn-primary text-white w-full">
+              Become a Partner (Donate Food)
+            </Link>
           </div>
         </div>
       </section>

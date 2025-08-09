@@ -9,6 +9,7 @@ import {
 } from "react-icons/fa";
 import { motion } from "framer-motion";
 import CountUp from "react-countup";
+import { Link } from "react-router";
 
 const AboutPage = () => {
   // Animation variants
@@ -17,7 +18,7 @@ const AboutPage = () => {
     show: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.2,
+        staggerChildren: 0.1,
       },
     },
   };
@@ -66,9 +67,9 @@ const AboutPage = () => {
               transition={{ delay: 0.5 }}
               className="flex flex-wrap justify-center gap-4"
             >
-              <button className="btn btn-primary text-white btn-lg">
+              <Link to="/addFood" className="btn btn-primary text-white btn-lg">
                 <FaUtensils className="mr-2" /> Donate Food
-              </button>
+              </Link>
             </motion.div>
           </motion.div>
         </div>
@@ -101,7 +102,7 @@ const AboutPage = () => {
             viewport={{ once: true }}
             className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center"
           >
-            <motion.div variants={item} className="">
+            <motion.div variants={item}>
               <h2 className="text-3xl md:text-4xl font-bold mb-6 text-neutral">
                 Our Mission to <span className="text-primary">Nourish</span>
               </h2>
@@ -307,9 +308,9 @@ const AboutPage = () => {
               Your action today can fill a plate tomorrow
             </p>
             <div className="flex flex-wrap justify-center gap-4">
-              <button className="btn btn-primary text-white btn-lg">
+              <Link to="/addFood" className="btn btn-primary text-white btn-lg">
                 <FaUtensils className="mr-2" /> Donate Food
-              </button>
+              </Link>
             </div>
           </motion.div>
         </div>

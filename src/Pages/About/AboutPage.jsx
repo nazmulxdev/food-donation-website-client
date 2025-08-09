@@ -184,7 +184,7 @@ const AboutPage = () => {
           </motion.div>
           <motion.div
             variants={container}
-            className="grid grid-cols-2 md:grid-cols-4 gap-8 text-center"
+            className="grid grid-cols-2 lg:grid-cols-4 gap-8 text-center"
           >
             {[
               {
